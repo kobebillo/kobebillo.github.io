@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>Kobe Billo</title>
+
+  <meta name="viewport" content="width=device-width"/>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+
+  <link rel="stylesheet" href="styles/main.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0"/>
+  <script src="scripts/theme.js"></script>
+
+  <!-- Primary meta tags -->
+  <meta name="title" content="Kobe Portfolio"/>
+  <meta name="description" content="Kobe Portfolio"/>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Kobe Billo</h1>
+      <p>I design reliable, high-performance networks. I am eager to learn and always take on new challenges!</p>
+      <p class="view"><small>Updated: August 16, 2024</small></p>
+      <h4>Links:</h4>
+      <p><a href="https://github.com/kobebillo">Cisco IOS-XR OSPF Debug & Diagnostics</a></p>
+      <p><a href="https://github.com/kobebillo">Cisco IOS-XR IS-IS Debug & Diagnostics</a></p>
+      <p><a href="https://github.com/kobebillo">Cisco IOS-XR BGP Debug & Diagnostics</a></p>
+    </header>
+    <section>
+      <h1>Introduction</h1>
+      <p>I’m a network engineer passionate about designing reliable, high-performance networks that seamlessly blend technical expertise with innovative solutions. My favorite work involves configuring routing protocols and ISP backbone technologies.</p>
+      <p>I am currently self-studying for the CCIE Service Provider, typically dedicating my after-work hours and rest days to it. I am currently working at Comcast Masergy, where I work with Nokia SR7750, Fortinet SD-WAN, and Silver Peak.</p>
+      <p>I was blessed to earn a scholarship based on my grades and receive a BA in Information Technology from MAPÚA University, graduating cum laude.</p>
+
+      <h1>Work Experience</h1>
+      <h3>Comcast Masergy<p class="view"><small>May 2024 - Current</small></p></h3>
+      <p>As a NOC Analyst at Comcast Masergy, I support multiple customers for technical solutions to transform and maintain their businesses. 
+        At times, I am responsible for stepping in for escalated issues, facilitating bridge meetings with customers and service providers to resolve complicated technical challenges efficiently.</p>
+      <p>Additionally, I obtained my CCNP Service Provider certification to deepen my networking knowledge. 
+        I have been responsible for configuring IPSec Site-to-Site and Remote Access SSL VPN solutions for our customers secure connectivity. 
+        For POP migrations, I have been able to configure and migrate VPRN, VPLS, and IES services of our customers. 
+        I have also handled the configuration and maintenance of our multihomed customers, implementing link-monitoring and health-checking processes to ensure reliable SLA failover capabilities.</p>
+      <h3>SPARC Properties and Real Estate<p class="view"><small>December 2023 - May 2024</small></p></h3>
+      <p>Work in Progress.</p>
+
+      <h1>Cisco IOS-XR</h1>
+      <p>Occasional commands update for <code>Cisco IOS-XR</code> before bed...</p>
+      <h3>Cisco IOS-XR IS-IS</h3>
+      <pre><code>router isis 1
+  net 49.0001.0100.0100.1001.00
+  address-family ipv4 unicast
+   router-id Loopback 0
+   metric-style wide
+   summary-prefix 10.1.10.0/24 tag 1234 level [1/2]
+  exit-address-family
+  address-family ipv6 unicast
+   router-id Loopback 0
+   adjacency-check disable
+   multi-topology / single-topology
+   default-information originate
+   maximum-paths [x] #default is 4
+   distance [x] #default IS-IS distance is 115
+  exit-address-family
+  interface Loopback 0
+   address-family ipv4 unicast
+   address-family ipv6 unicast
+  interface GigabitEthernet 0/0/0/0
+   circuit-type level-2-only
+   address-family ipv4 unicast
+   address-family ipv6 unicast
+</code></pre>
+      <h3>Cisco IOS-XR BGP</h3>
+      <pre><code class="language-html">route-policy pass
+  pass
+end-policy
+</code></pre>
+
+      <h2>Quotes</h2>
+      <p>Lucius Annaeus Seneca, the Younger. "Letters from a Stoic".</p>
+      <blockquote><p>If you see a person not frightened by dangers, untouched by desires, cheerful in
+        difficult circumstances, calm amidst the storms, looking at human beings from a
+        higher place and upon the gods from their own level—will you not be in awe of
+        such a man? Will you not say, ‘This is a thing so great and lofty that one cannot
+        believe it is similar to the paltry body it inhabits?’</p></blockquote>
+      <p>Roosevelt, Theodore. "Citizenship in a Republic".</p>
+      <blockquote>
+        <p>It is not the critic who counts; not the man who points out how the strong man stumbles, 
+          or where the doer of deeds could have done them better. The credit belongs to the man who is 
+          actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; 
+          who errs, who comes short again and again, because there is no effort without error and shortcoming; 
+          but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; 
+          who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement,
+           and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never 
+           be with those cold and timid souls who neither know victory nor defeat.</p>
+      </blockquote>
+    </section>
+    <footer>
+      <p><button class="material-symbols-sharp" id="theme-toggle" title="Toggle dark mode" onclick="toggleDarkMode()"></button></p>
+      <p>If you have a work opportunity, a question, or just want to say hi, feel free to message <a href="https://www.linkedin.com/in/kobebillo/">me</a>!</p>
+      <p><small>Portfolio is hosted on &mdash; <a href="https://github.com/kobebillo">Github</a>.</small></p>
+    </footer>
+  </div>
+  <script src="scripts/scale.fix.js"></script>
+</body>
+
+</html>
