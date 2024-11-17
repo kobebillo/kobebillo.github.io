@@ -21,7 +21,7 @@
   <div class="wrapper">
     <header>
       <h1>Kobe Billo</h1>
-      <p>I design reliable, high-performance networks. I am eager to learn and always take on new challenges!</p>
+      <p>I design reliable, high-performance networks.</p>
       <p class="view"><small>Updated: August 16, 2024</small></p>
       <h4>Links:</h4>
       <p><a href="https://github.com/kobebillo">Cisco IOS-XR OSPF Debug & Diagnostics</a></p>
@@ -46,7 +46,63 @@
       <p>Work in Progress.</p>
 
       <h1>Cisco IOS-XR</h1>
-      <p>Occasional commands update for <code>Cisco IOS-XR</code> before bed...</p>
+      <p>What do you think this <code>configuration</code> do in perspective of the ISP?</p>
+      <h3>Cisco IOS-XR BGP</h3>
+      <pre><code class="language-html">community-set Primary
+  23456:200
+end-set
+
+community-set Backup
+  23456:50
+end-set
+
+route-policy Comm2ActionIn
+  if community matches-any Primary then
+    set local-preference 200
+  endif
+  if community matches-any Backup then
+    set local-preference 50
+  endif
+end-policy
+
+router bgp 23456
+  neighbor 200.1.1.1
+    remote-as 64511
+    address-family ipv4 unicast
+      route-policy Comm2ActionIn in
+    exit-address-family
+
+community-set 1Prep
+  23456:1
+end-set
+
+community-set 2Prep
+  23456:2
+end-set
+
+community-set 3Prep
+  23456:3
+end-set
+
+route-policy Comm2ActionOut
+  if community matches-any 1Prep then
+    prepend as-path 23456 1
+  endif
+  if community matches-any 2Prep then
+    prepend as-path 23456 2
+  endif
+  if community matches-any 3Prep then
+    prepend as-path 23456 3
+  endif
+end-policy
+
+router bgp 23456
+  neighbor 200.2.2.2
+    remote-as 64123
+    address-family ipv4 unicast
+      route-policy Comm2ActionOut out
+    exit-address-family
+</code></pre>
       <h3>Cisco IOS-XR IS-IS</h3>
       <pre><code>router isis 1
   net 49.0001.0100.0100.1001.00
@@ -71,13 +127,8 @@
    address-family ipv4 unicast
    address-family ipv6 unicast
 </code></pre>
-      <h3>Cisco IOS-XR BGP</h3>
-      <pre><code class="language-html">route-policy pass
-  pass
-end-policy
-</code></pre>
 
-      <h2>Quotes</h2>
+      <h2>?</h2>
       <p>Lucius Annaeus Seneca, the Younger. "Letters from a Stoic".</p>
       <blockquote><p>If you see a person not frightened by dangers, untouched by desires, cheerful in
         difficult circumstances, calm amidst the storms, looking at human beings from a
