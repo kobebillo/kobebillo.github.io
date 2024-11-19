@@ -2,6 +2,8 @@
 
 * {
   --primary: #448aff; /*Blue A200*/
+  --subtopic: #ff44b4;
+
 }
 
 :root {
@@ -13,7 +15,7 @@
 
   --on-surface: #fefeff; /*Gray 50*/
   --on-surface-variant: #f5f5f5; /*Gray 100*/
-  --outline: #f0f0f1; /*Gray 400*/
+  --outline: #a9a9a9; /*Gray 400*/
   --outline-variant: #9e9e9e; /*Gray 500*/
 
   --border: #616161; /*Gray 700*/
@@ -33,6 +35,7 @@
   --surface-container-high: #c2c2c2; /*Gray 100 Dark*/
 
   --on-surface: #212121; /*Gray 900*/
+  --on-paragraph: #616161;
   --on-surface-variant: #424242; /*Gray 800*/
   --outline: #616161; /*Gray 700*/
   --outline-variant: #757575; /*Gray 600*/
@@ -50,6 +53,10 @@ p small {
   color: var(--outline-variant);
 } blockquote p {
   color: var(--outline-variant);
+}
+
+p.headingdesc {
+  color: var(--on-surface);
 }
 
 code {
@@ -93,6 +100,11 @@ body {
   font: 14px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   color: /*#595959*/ var(--outline);
   font-weight: 400;
+}
+
+h4.subtopic {
+  color: var(--primary);
+  margin: 10 10 20px;
 }
 
 h1, h2, h3, h4, h5, h6 {

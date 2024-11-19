@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="styles/main.css"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0"/>
   <script src="scripts/theme.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
   <!-- Primary meta tags -->
   <meta name="title" content="Kobe Portfolio"/>
@@ -23,111 +24,34 @@
   <div class="wrapper">
     <header>
       <h1>Kobe Billo</h1>
-      <p>I design reliable, high-performance networks, specializing in Service Provider and Enterprise Solution Design.</p>
+      <p class="headingdesc">I design reliable, high-performance networks, specializing in Service Provider and Enterprise Solution Design.</p>
       <p class="view"><small>Updated: August 16, 2024</small></p>
-      <h4>Links:</h4>
-      <p><a href="https://github.com/kobebillo/iosxr-dd/blob/main/OSPF.pdf">Cisco IOS-XR OSPF Debug & Diagnostics</a></p>
-      <p><a href="https://github.com/kobebillo/iosxr-dd/blob/main/IS-IS.pdf">Cisco IOS-XR IS-IS Debug & Diagnostics</a></p>
-      <p><a href="https://github.com/kobebillo">Cisco IOS-XR BGP Debug & Diagnostics</a></p>
     </header>
     <section>
-      <h1>Introduction</h1>
+      <h4>ABOUT</h4>
       <p>I'm a network engineer passionate about Service Provider and Enterprise Solution Design. My favorite work lies at the intersection of design and development, implementing routing protocols that are not only optimized for performance but also built for scalability and reliability.</p>
       <p>I earned a scholarship based on my academic performance and received a BA in Information Technology from MAPÚA University, graduating cum laude. Outside my formal education, I passed CCNP Service Provider on August 16, 2024 and I am currently self-studying for the CCIE Service Provider, typically dedicating my after-work hours and rest days to it. My role at Comcast Masergy, where I work with Nokia SR7750 and Fortinet SD-WAN, prepares me for the Service Provider track by gaining hands-on experience in managing and maintaining the Masergy backbone.</p>
-      <p>In my spare time, I’m usually at the boxing gym training or watching local fights, catching up on movies and anime at home, or updating my documentations on GitHub.</p>
-
-      <h1>Work Experience</h1>
-      <h3>Comcast Masergy<p class="view"><small>May 2024 - Current</small></p></h3>
+      <p>In my spare time, I&apos;m usually at the boxing gym training or watching local fights, catching up on movies and anime at home, or updating my documentations on GitHub.</p>
+      <h4>EXPERIENCE</h4>
+      <h4>NOC Analyst · Comcast Masergy<p class="view"><small>May 2024 - Current</small></p></h4>
       <p>As a NOC Analyst at Comcast Masergy, I provide technical solutions to support and transform customer networks. With hands-on experience in SD-WAN, Internet routing, and secure connectivity. I have been responsible for setting up IPSec VPN Tunneling such as Site-to-Site and Remote Access VPN between our customers' organizations. I have experienced configuring and migrating our POPs for our customers' VPRN, VPLS, and IES services using Nokia SR7750. My role also involves troubleshooting and resolving escalated issues, where I collaborate with customers and service providers to quickly resolve network challenges.</p>
       <p>I am able to work under pressure and in fast-paced environments. I provide excellent communication and collaboration skills, which enable me to work effectively with customers and escalations. My focus is on ensuring smooth network operations, troubleshooting issues quickly, and maintaining optimal performance. I also contribute to on-call rotations, providing continuous support to meet the needs of our customers.</p>
-      <h3>SPARC Properties and Realty Corporation<p class="view"><small>December 2023 - May 2024</small></p></h3>
+      <h4>NOC Engineer · SPARC Properties and Realty Corporation<p class="view"><small>December 2023 - May 2024</small></p></h4>
       <p>At SPARC Properties and Realty Corporation, I managed network operations and physical cabling for office infrastructures, ensuring seamless connectivity and optimal performance. I configured Cisco MDF core switches and implemented VLANs with DHCP to support dynamic networking needs. My role involved deploying and managing QoS policies, class maps, and ACLs to meet bandwidth performance goals. I utilized tools like Checkmk, PingPlotter, Syslog, and Cacti for network monitoring, troubleshooting, and documentation.</p>
       <p>Additionally, I deployed PHPIPAM with VLSM to streamline IP address management and plan for future network expansions. I also provided technical support for network devices, conducted scheduled maintenance, and communicated updates with customers to minimize downtime. My expertise extended to BGP and OSPF configuration, QoS traffic shaping, route filtering, SNMP, and VLAN management. Working with Cisco, Fortinet, and MikroTik products, I contributed to enterprise network reliability through efficient routing, troubleshooting, and documentation, while honing strong communication and customer interaction skills.</p>
-
-      <h1>Cisco IOS-XR</h1>
-      <h3>BGP</h3>
-      <p>NOT UPDATED, will be changing this part to PROJECTS instead.</p>
-      <pre><code class="language-html">community-set Primary
-  23456:200
-end-set
-
-community-set Backup
-  23456:50
-end-set
-
-route-policy Comm2ActionIn
-  if community matches-any Primary then
-    set local-preference 200
-  endif
-  if community matches-any Backup then
-    set local-preference 50
-  endif
-end-policy
-
-router bgp 23456
-  neighbor 200.1.1.1
-    remote-as 64511
-    address-family ipv4 unicast
-      route-policy Comm2ActionIn in
-    exit-address-family
-
-community-set 1Prep
-  23456:1
-end-set
-
-community-set 2Prep
-  23456:2
-end-set
-
-community-set 3Prep
-  23456:3
-end-set
-
-route-policy Comm2ActionOut
-  if community matches-any 1Prep then
-    prepend as-path 23456 1
-  endif
-  if community matches-any 2Prep then
-    prepend as-path 23456 2
-  endif
-  if community matches-any 3Prep then
-    prepend as-path 23456 3
-  endif
-end-policy
-
-router bgp 23456
-  neighbor 200.2.2.2
-    remote-as 64123
-    address-family ipv4 unicast
-      route-policy Comm2ActionOut out
-    exit-address-family
-</code></pre>
-      <h3>IS-IS</h3>
-      <pre><code>router isis 1
-  net 49.0001.0100.0100.1001.00
-  address-family ipv4 unicast
-   router-id Loopback 0
-   metric-style wide
-   summary-prefix 10.1.10.0/24 tag 1234 level [1/2]
-  exit-address-family
-  address-family ipv6 unicast
-   router-id Loopback 0
-   adjacency-check disable
-   multi-topology / single-topology
-   default-information originate
-   maximum-paths [x] #default is 4
-   distance [x] #default IS-IS distance is 115
-  exit-address-family
-  interface Loopback 0
-   address-family ipv4 unicast
-   address-family ipv6 unicast
-  interface GigabitEthernet 0/0/0/0
-   circuit-type level-2-only
-   address-family ipv4 unicast
-   address-family ipv6 unicast
-</code></pre>
-
-      <p>Roosevelt, Theodore. "Citizenship in a Republic".</p>
+      <h4><a href="blank" target="_blank">View Full Résumé</a></h4>
+      <h4>PROJECTS</h4>
+      <h4><a href="" target="_blank">Service Provider Solution Design</a></h4>
+      <p>[description]</p>
+      <pre><code>route-policy name
+        set
+end-policy</code></pre>
+      <h4><a href="" target="_blank">Enterprise Solution Design</a></h4>
+      <p>[description]</p>
+      <pre><code>route-policy name
+        match
+end-policy</code></pre>
+      <h4>Roosevelt, Theodore. "Citizenship in a Republic".</h4>
       <blockquote>
         <p>It is not the critic who counts; not the man who points out how the strong man stumbles, 
           or where the doer of deeds could have done them better. The credit belongs to the man who is 
@@ -141,8 +65,8 @@ router bgp 23456
     </section>
     <footer>
       <p><button class="material-symbols-sharp" id="theme-toggle" title="Toggle dark mode" onclick="toggleDarkMode()"></button></p>
-      <p>If you have a work opportunity, a question, or just want to say hi, feel free to message <a href="https://www.linkedin.com/in/kobebillo/">me</a>!</p>
-      <p><small>Portfolio is hosted on &mdash; <a href="https://github.com/kobebillo">Github</a>.</small></p>
+      <p class="headingdesc">If you have a work opportunity, a question, or just want to say hi, feel free to message <a href="https://www.linkedin.com/in/kobebillo/" target="_blank">me</a>!</p>
+      <p><small>Portfolio is hosted on &mdash; <a href="https://github.com/kobebillo" target="_blank">Github</a>.</small></p>
     </footer>
   </div>
   <script src="scripts/scale.fix.js"></script>
